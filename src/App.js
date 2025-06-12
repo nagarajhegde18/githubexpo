@@ -6,11 +6,11 @@ import Bookmarks from './pages/Bookmarks';
 function App() {
   return (
     <Router>
-      <div className="App min-h-screen bg-cover bg-center bg-fixed" 
+      <div className="App min-h-screen bg-cover bg-center bg-fixed flex flex-col" 
            style={{
              backgroundImage: 'url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
            }}>
-        <div className="bg-black bg-opacity-75 min-h-screen">
+        <div className="bg-black bg-opacity-75 min-h-screen flex flex-col">
           <nav className="bg-gray-900 bg-opacity-90 shadow-lg">
             <div className="container mx-auto px-4">
               <div className="flex justify-between items-center h-16">
@@ -37,10 +37,20 @@ function App() {
             </div>
           </nav>
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/bookmarks" element={<Bookmarks />} />
-          </Routes>
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/bookmarks" element={<Bookmarks />} />
+            </Routes>
+          </div>
+
+          <footer className="bg-gray-900 bg-opacity-90 py-4 mt-auto">
+            <div className="container mx-auto px-4 text-center">
+              <p className="text-gray-300">
+                Made with <span className="text-red-500">❤</span> by Nagaraj Hegde
+              </p>
+            </div>
+          </footer>
         </div>
       </div>
     </Router>
