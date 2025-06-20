@@ -77,16 +77,6 @@ Chart.js
 Tailwind CSS
 
 
-## ScrrenShots
-![Screenshot 2025-06-20 095523](https://github.com/user-attachments/assets/8b44ad21-45e6-44b0-9161-e5cfb952eaf0)
-![Screenshot 2025-06-20 095545](https://github.com/user-attachments/assets/698f6e5e-76c4-415c-8e73-e1ffe20681c6)
-![Screenshot 2025-06-20 101452](https://github.com/user-attachments/assets/1838eab0-dbc7-4a94-af5b-526ff41228b6)
-![Screenshot 2025-06-20 101529](https://github.com/user-attachments/assets/da821d8a-122f-4e9b-8ca6-2deae3662e2a)
-![Screenshot 2025-06-20 101623](https://github.com/user-attachments/assets/2939e55d-94a1-4de0-b155-b35e182192e2)
-
-
-
-
 
 
 
