@@ -4,6 +4,7 @@ import RepoCard from '../components/RepoCard';
 import FilterBar from '../components/FilterBar';
 import ChartSection from '../components/ChartSection';
 import RepoModal from '../components/RepoModal';
+import SearchBar from '../components/SearchBar';
 
 const Home = () => {
   const [repos, setRepos] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [selectedRepo, setSelectedRepo] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const loadRepos = async () => {
@@ -53,7 +55,8 @@ const Home = () => {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-8">GitHub Explorer</h1>
-        
+        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+        <div className="my-4" />
         <FilterBar 
           setLanguage={setLanguage} 
           setSort={setSort} 
@@ -76,15 +79,17 @@ const Home = () => {
         {!loading && !error && (
           <>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              {repos.map(repo => (
-                <div 
-                  key={repo.id} 
-                  onClick={() => handleRepoClick(repo)}
-                  className="cursor-pointer transform hover:scale-105 transition-transform duration-200"
-                >
-                  <RepoCard repo={repo} />
-                </div>
-              ))}
+              {repos
+                .filter(repo => repo.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                .map(repo => (
+                  <div 
+                    key={repo.id} 
+                    onClick={() => handleRepoClick(repo)}
+                    className="cursor-pointer transform hover:scale-105 transition-transform duration-200"
+                  >
+                    <RepoCard repo={repo} />
+                  </div>
+                ))}
             </div>
 
             {hasMore && (
